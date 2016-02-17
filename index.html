@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Framework Setup</title>
+</head>
+
+<body>
+
+    <div id="container"></div>
+
+    <!-- Using i18n on static page content -->
+    <p data-i18n="global-ajax-error-401.title.text">401 message</p>
+    <input data-i18n="label-1.placeholder" />
+
+    <!-- Registering Partial -->
+    <script name="nav" type="text/x-handlebars-partial">
+        <ul>
+            <!-- Using i18n within template -->
+            <li><a href="/">{{i18n "global-menu-home"}}</a></li>
+            <li><a href="/contact.html">{{i18n "global-menu-contact"}}</a></li>
+        </ul>
+        <p>Some partial content here</p>
+    </script>
+    <script name="test" type="text/x-handlebars-template">
+        <!-- Using registered partial with template -->
+        {{> nav}}
+        <div class="entry">
+            <h1>{{title}}</h1>
+            <div class="body">
+                {{body}}
+                <p><b>Using Localization with handlebar template:</b> {{i18n "global-menu-home"}}</p>
+            </div>
+        </div>
+    </script>
+    <script name="programList" type="text/x-handlebars-template">
+        <table border="1" cellpadding="4">
+            <thead>
+                <tr>
+                    <th>SN.</th>
+                    <th>Program Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each this}}
+                <tr>
+                    <td>{{@index}}</td>
+                    <td data-program-id="{{id}}">{{name}}</td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="2">No program found!</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
+
+    <script src="js/vendors/require.js" data-main="js/app"></script>
+</body>
+</html>
