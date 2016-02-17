@@ -2,6 +2,8 @@
 A starter pack with a full fledged UI framework.
 
 ## Features
+* Modular code
+* Uses requireJS
 * Ajax service wrapper
 * Templating Manager
 * REST API standalone configuration
