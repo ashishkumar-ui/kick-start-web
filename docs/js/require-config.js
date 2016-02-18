@@ -5,6 +5,7 @@ require.config({
         jquery: "vendors/jquery-2.2.0.min",
         handlebar: "vendors/handlebars-v4.0.5",
         underscore: "vendors/underscore-min",
+        bootstrap: "vendors/bootstrap.min",
         
         templateManager: "globals/template-manager",
         translationManager: "globals/translation-manager",

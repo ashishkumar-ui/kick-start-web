@@ -1,13 +1,18 @@
+/* global define */
+
 define(function (require) {
+    "use strict";
+    
     var $ = require("jquery"),
         template = require("templateManager"),
         http = require("http"),
         serviceConfig = require("serviceConfig"),
         utils = require("utils"),
         sharedScope = require("sharedScope"),
-        translationManager = require("translationManager");
+        translationManager = require("translationManager"),
+        bootstrap = require("bootstrap");
 
-    function renderHeader(){
+    function renderHeader() {
         var params;
         
         $("#container").html(template.repository.test({
@@ -21,7 +26,7 @@ define(function (require) {
                 name: "Ashish Kumar",
                 id: 89
             },
-            successCallback: function(resp){
+            successCallback: function (resp) {
                 $("#container").append(template.repository.programList(resp));
             }
         };
