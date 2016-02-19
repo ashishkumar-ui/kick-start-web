@@ -1,4 +1,4 @@
-# kick-start-web
+# Kick Start Web
 A starter pack with a full fledged UI framework.
 
 ## Features
