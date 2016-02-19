@@ -1,6 +1,17 @@
 {
-    "global-menu-home": "Home",
-    "global-menu-contact": "Contact us",
+    "logo-text": "Kick Start Web: Documentation",
+    
+    "nav-home": "Home",
+    "nav-config": "Configurations",
+    "nav-require-config": "RequireJS Config",
+    "nav-app-config": "Application Config",
+    "nav-rest-config": "REST Service Config",
+    "nav-framework-utilities": "Framework Utilities",
+    "nav-rest-service": "REST Service Layer",
+    "nav-template-manager": "Template Manager",
+    "nav-translation-manager": "Translation Manager",
+    "nav-common-utility-library": "Common Utility Library",
+    "nav-application-shared-scope": "Application Shared Scope",
     
     "label-1": "Label 1",
     "label-2": "Label 2",

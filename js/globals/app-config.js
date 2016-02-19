@@ -1,4 +1,5 @@
 define(function (require) {
+    "use strict";
     return {
         app: {
             name: "UI Framework : Test Application",

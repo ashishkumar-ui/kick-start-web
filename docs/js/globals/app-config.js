@@ -1,4 +1,6 @@
 define(function (require) {
+    "use strict";
+    
     return {
         app: {
             name: "UI Framework : Test Application",
@@ -6,7 +8,7 @@ define(function (require) {
             version: "1.0.0"
         },
         urls: {
-            restRoot: "/data/"
+            restRoot: "/docs/data/"
         }
     };
 });

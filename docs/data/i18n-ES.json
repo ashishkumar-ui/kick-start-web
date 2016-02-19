@@ -1,6 +1,17 @@
 {
-    "global-menu-home": "Hogar",
-    "global-menu-contact": "Contáctenos",
+    "logo-text": "Kick Start Web: Documentación",
+    
+    "nav-home": "Hogar",
+    "nav-config": "configuraciones",
+    "nav-require-config": "RequireJS Config",
+    "nav-app-config": "aplicación Config",
+    "nav-rest-config": "RESTO servicio de configuración",
+    "nav-framework-utilities": "Utilidades marco",
+    "nav-rest-service": "Capa de servicio REST",
+    "nav-template-manager": "Administrador de plantillas",
+    "nav-translation-manager": "Administrador de traducciones",
+    "nav-common-utility-library": "Biblioteca de utilidades comunes",
+    "nav-application-shared-scope": "Alcance de uso compartido",
     
     "label-1": "etiqueta 1",
     "label-2": "etiqueta 2",

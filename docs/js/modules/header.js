@@ -10,8 +10,12 @@ define(function (require) {
         utils = require("utils"),
         sharedScope = require("sharedScope"),
         translationManager = require("translationManager"),
+        bootstrap;
+    
+    $(function(){
         bootstrap = require("bootstrap");
-
+    });
+    
     function renderHeader() {
         var params;
         
