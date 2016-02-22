@@ -55,6 +55,7 @@
                             <li><a href="shared-scope.html" data-i18n="nav-application-shared-scope">Application Shared Scope</a></li>
                         </ul>
                     </li>
+                    <li class="active"><a href="thumb-rules.html" data-i18n="nav-thumb-rules">Thumb Rules</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -62,11 +63,89 @@
     </nav>
 
     <div class="container theme-showcase" role="main">
-        <div id="container"></div>
+        <p>Kick Start Web is a light weight UI framework packed with lot of features integrated in it. This is formed for very custom needs to start a RESTful web application. This framework is an integrated suite of all the good web-tools avaialble.</p>
 
-        <!-- Using i18n on static page content -->
-        <p data-i18n="global-ajax-error-401.title.text">401 message</p>
-        <input data-i18n="label-1.placeholder" />
+        <p>Here are the features listed of it:</p>
+
+        <ul>
+            <li>Modular code</li>
+            <li>Uses RequireJS</li>
+            <li>Ajax service wrapper</li>
+            <li>Templating Manager</li>
+            <li>REST API standalone configuration</li>
+            <li>Application level standalone configuration</li>
+            <li>Internationlizaton (i18n) integrated for base HTML and templating</li>
+            <li>Shared Scope cross modules for sharing data, functions etc.</li>
+            <li>Common utility available</li>
+        </ul>
+        
+        <h2><span class="glyphicon glyphicon-hand-right"></span> Modular code</h2>
+        <p>The framework contains clean architecture of very modular code. It contains a <code>/js</code> folder with below contents in it:</p>
+        <ol>
+            <li><code>/globals</code>: All the JS files which are being used globally like variuos global configurations, template manager, translation manager, service layer wrapper etc.</li>
+            <li><code>/modules</code>: Keeps all the module/component specific JS files in it.</li>
+            <li><code>/vendors</code>: Keeps all the 3rd party JS files.</li>
+            <li><code>app.js</code></li>
+            <li><code>require-config.js</code>: global requirejs configurations</li>
+        </ol>
+        <p class="alert alert-info"><span class="glyphicon glyphicon-info-sign"></span> Idea is to keep each file module/component specific and each of them is supposed to expose only required functionalities outside with the help of <code>requirejs</code></p>
+        
+        <h2><span class="glyphicon glyphicon-hand-right"></span> Uses RequireJS</h2>
+        <p>As mentioned above, it uses <code>RequireJS</code> to bind up the entire architecture, which helps to make the entire app modular easily.</p>
+        
+        <h2><span class="glyphicon glyphicon-hand-right"></span> Ajax service wrapper</h2>
+        <p>It has an <em>Ajax</em> wrapper module which helps to have the REST service call with some sort of central approach. You can set variuos default options for all the Ajax calls like error/success handler, pre-ajax setups etc. at one place.</p>
+        
+        <p>All you need to inject the service module with RequireJS like:</p>
+        <p><code>var http = require("http");</code></p>
+        <p>And then use the exposed API methods based on your needs:
+        <p>
+            <code>http.get(options);</code>
+            <br/>
+            <code>http.post(options);</code>
+        </p>
+        <p><a href="service.html">Read more about it...</a></p>
+        
+        <h2><span class="glyphicon glyphicon-hand-right"></span> Templating Manager</h2>
+        <p>With the help of a very popular and commonly used templatig engine known as <a href="//handlebarsjs.com" target="_blank"><span class="glyphicon glyphicon-new-window"></span> handlebar</a>, we have built the templating manager which parses all the templates in the page and stores in a some sort of repository and then you can use the same whenever you need any of theose. You also can define partials and use them within the templates too.</p>
+        <p><a href="template-manager.html">Read more about it...</a></p>
+        
+        <h2><span class="glyphicon glyphicon-hand-right"></span> REST API standalone configuration</h2>
+        <p>The framework has a central configuration for REST URLs where you can keep all your service URLS at one place and then you can use it wherever you want. All you need to do is to inject this configuration file in your module where you need it <code>var serviceConfig = require("serviceConfig");</code></p>
+        <p>And then all the configured URLS are available to this module which can be used further:</p>
+        <pre>
+           var http = require("http"), // Injecting Service API
+               serviceConfig = require("serviceConfig"), // Injecting Service Configuration
+               ajaxParams;
+               
+            ajaxParams = {
+                url: serviceConfig.module1.getTaskList, // use service URL
+                data: {
+                    pid: 20
+                },
+                successCallback: function(resp){
+                    // do something here
+                }
+            };
+            
+            // Make Service call
+            http.get(ajaxParams);
+        </pre>
+        
+        <h2><span class="glyphicon glyphicon-hand-right"></span> Application level standalone configuration</h2>
+        <p></p>
+        
+        <h2><span class="glyphicon glyphicon-hand-right"></span> Internationlizaton (i18n) integrated for base HTML and templating</h2>
+        <p></p>
+        
+        <h2><span class="glyphicon glyphicon-hand-right"></span> Shared Scope cross modules for sharing data, functions etc.</h2>
+        <p></p>
+        
+        <h2><span class="glyphicon glyphicon-hand-right"></span> Common utility available</h2>
+        <p></p>
+        
+
+        <div id="container"></div>
     </div>
 
     <footer class="footer">

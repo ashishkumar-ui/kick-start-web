@@ -9,7 +9,7 @@ define(function (require) {
     // Get all internatiolization data
     function getLocalizationData() {
         var params = {
-            url: "i18n-ES.json",
+            url: "i18n-EN.json",
             successCallback: function (resp) {
                 if (resp) {
                     localizationObj = resp;

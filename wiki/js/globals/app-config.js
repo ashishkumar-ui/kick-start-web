@@ -8,7 +8,7 @@ define(function (require) {
             version: "1.0.0"
         },
         urls: {
-            restRoot: "/docs/data/"
+            restRoot: "/wiki/data/"
         }
     };
 });
