@@ -76,6 +76,7 @@ define(function (require) {
 
     // Exposing stuffs
     return {
-        init: init
+        init: init,
+        i18n: i18n
     };
 });
