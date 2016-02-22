@@ -115,22 +115,22 @@
         <p>The framework has a central configuration for REST URLs where you can keep all your service URLS at one place and then you can use it wherever you want. All you need to do is to inject this configuration file in your module where you need it <code>var serviceConfig = require("serviceConfig");</code></p>
         <p>And then all the configured URLS are available to this module which can be used further:</p>
         <pre>
-           var http = require("http"), // Injecting Service API
-               serviceConfig = require("serviceConfig"), // Injecting Service Configuration
-               ajaxParams;
-               
-            ajaxParams = {
-                url: serviceConfig.module1.getTaskList, // use service URL
-                data: {
-                    pid: 20
-                },
-                successCallback: function(resp){
-                    // do something here
-                }
-            };
-            
-            // Make Service call
-            http.get(ajaxParams);
+var http = require("http"), // Injecting Service API
+   serviceConfig = require("serviceConfig"), // Injecting Service Configuration
+   ajaxParams;
+
+ajaxParams = {
+    url: serviceConfig.module1.getTaskList, // use service URL
+    data: {
+        pid: 20
+    },
+    successCallback: function(resp){
+        // do something here
+    }
+};
+
+// Make Service call
+http.get(ajaxParams);
         </pre>
         
         <h2><span class="glyphicon glyphicon-hand-right"></span> Application level standalone configuration</h2>
