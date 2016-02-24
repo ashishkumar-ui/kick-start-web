@@ -35,28 +35,6 @@
             </div>
         </div>
     </script>
-    <script name="programList" type="text/x-handlebars-template">
-        <table border="1" cellpadding="4">
-            <thead>
-                <tr>
-                    <th>SN.</th>
-                    <th>Program Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each this}}
-                <tr>
-                    <td>{{@index}}</td>
-                    <td data-program-id="{{id}}">{{name}}</td>
-                </tr>
-                {{else}}
-                <tr>
-                    <td colspan="2">No program found!</td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </script>
 
     <script src="js/vendors/require.js" data-main="js/contact"></script>
 </body>
