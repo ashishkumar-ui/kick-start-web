@@ -1,6 +1,6 @@
 define(function (require) {
     "use strict";
-    
+
     var $ = require("jquery"),
         handlebar = require("handlebar"),
         repository = {};
@@ -29,9 +29,28 @@ define(function (require) {
         $this.remove();
     });
 
+    //
+    function loadTemplateByUrl(url, name) {
+        var template;
+
+        if (!url || !name) {
+            return "URL or name not found";
+        }
+
+        $.get({
+            url: url,
+            async: false,
+            success: function (resp) {
+                template = handlebar.compile(resp);
+                repository[name] = template;
+            }
+        });
+    }
+
     // Exposing stuffs
     return {
         api: handlebar,
-        repository: repository
+        repository: repository,
+        load: loadTemplateByUrl
     };
 });

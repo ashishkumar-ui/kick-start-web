@@ -12,8 +12,8 @@ define(function (require) {
 
     function renderHeader() {
         var params;
-        
-        $("#container").html(template.repository.test({
+
+        $("#header").html(template.repository.test({
             title: "My New Post",
             body: "This is my first post!"
         }));

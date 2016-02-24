@@ -3,7 +3,7 @@ define(function (require) {
 
     return {
         global: {
-
+            getProducts: "products.json"
         },
         testModule: {
             getPrograms: "program-list.json"
