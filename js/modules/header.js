@@ -1,8 +1,7 @@
 define(function (require) {
     "use strict";
 
-    var bootstrap = require("bootstrap"),
-        //$ = require("jquery"),        
+    var bootstrap = require("bootstrap"), // using this also give reference of jQuery as $
         template = require("templateManager"),
         http = require("http"),
         serviceConfig = require("serviceConfig"),
@@ -11,26 +10,10 @@ define(function (require) {
         translationManager = require("translationManager");
 
     function renderHeader() {
-        var params;
-
         $("#header").html(template.repository.test({
             title: "My New Post",
             body: "This is my first post!"
         }));
-
-        params = {
-            url: serviceConfig.testModule.getPrograms,
-            data: {
-                name: "Ashish Kumar",
-                id: 89
-            },
-            successCallback: function (resp) {
-                $("#container").append(template.repository.programList(resp));
-            }
-        };
-
-        // making rest calls
-        http.get(params);
     }
 
     // Using translation manager

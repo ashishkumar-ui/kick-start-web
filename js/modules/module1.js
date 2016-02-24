@@ -9,24 +9,23 @@ define(function (require) {
 
     // Using Shared Scope
     sharedScope.checkFunction = function () {
-        console.log(">> Module2: I am from Shared Scope");
+        console.log(">> Module1: I am from Shared Scope");
     };
-    
+
     //
     template.api.registerHelper("currencyFormat", utils.currencyFormat);
 
     function loadProducts() {
         var params = {
-            url: serviceConfig.global.getProducts,
-            successCallback: function (data) {
-                $("#container").append(template.repository.externalTemplateExample(data));
+            url: serviceConfig.testModule.getPrograms,
+            data: {
+                name: "Ashish Kumar",
+                id: 89
+            },
+            successCallback: function (resp) {
+                $("#container").append(template.repository.programList(resp));
             }
         };
-        
-        // Loading external template
-        if (!template.repository.externalTemplateExample) {
-            template.load("partial.html", "externalTemplateExample");
-        }
 
         // making rest calls
         http.get(params);

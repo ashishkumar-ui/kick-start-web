@@ -1,7 +1,7 @@
 [{
         "name": "OnePlus One",
         "price": 21999,
-        "simeCount": 1,
+        "simCount": 1,
         "platform": "android",
         "ram": 3,
         "brand": "OnePlus",
@@ -10,7 +10,7 @@
     {
         "name": "OnePlus Two",
         "price": 24999,
-        "simeCount": 2,
+        "simCount": 2,
         "platform": "android",
         "ram": 4,
         "brand": "OnePlus",
@@ -19,7 +19,7 @@
     {
         "name": "iPhone 6s",
         "price": 47999,
-        "simeCount": 1,
+        "simCount": 1,
         "platform": "ios",
         "ram": 3,
         "brand": "Apple",
@@ -28,7 +28,7 @@
     {
         "name": "Samsung Galaxy S6",
         "price": 37999,
-        "simeCount": 2,
+        "simCount": 2,
         "platform": "android",
         "ram": 3,
         "brand": "Samsung",
@@ -37,7 +37,7 @@
     {
         "name": "Letv Le Max (Silver, 64 GB)",
         "price": 32999,
-        "simeCount": 4,
+        "simCount": 4,
         "platform": "android",
         "ram": 4,
         "brand": "Samsung",

@@ -26,3 +26,7 @@
     background: #000;
     color: #FFF;
 }
+
+td, th{
+    padding: 10px 15px;
+}
