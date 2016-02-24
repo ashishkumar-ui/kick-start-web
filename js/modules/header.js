@@ -12,7 +12,7 @@ define(function (require) {
 
     function renderHeader() {
         var params;
-         console.log("bootstrap version", $.fn.tooltip.Constructor.VERSION);
+        
         $("#container").html(template.repository.test({
             title: "My New Post",
             body: "This is my first post!"
