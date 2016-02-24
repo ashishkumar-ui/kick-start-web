@@ -5,6 +5,7 @@ require.config({
         jquery: "vendors/jquery-2.2.0.min",
         handlebar: "vendors/handlebars-v4.0.5",
         underscore: "vendors/underscore-min",
+        bootstrap: "vendors/bootstrap",
         
         templateManager: "globals/template-manager",
         translationManager: "globals/translation-manager",
@@ -13,5 +14,14 @@ require.config({
         serviceConfig: "globals/service-config",
         utils : "globals/utils",
         sharedScope: "globals/shared-scope"
+    },
+    
+    shim: {
+        jquery: {
+          exports: "$"  
+        },
+        bootstrap:{
+            deps: ["jquery"]
+        }
     }
 });
