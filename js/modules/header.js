@@ -1,8 +1,7 @@
 define(function (require) {
     "use strict";
 
-    var 
-        bootstrap = require("bootstrap"),
+    var bootstrap = require("bootstrap"),
         //$ = require("jquery"),        
         template = require("templateManager"),
         http = require("http"),
