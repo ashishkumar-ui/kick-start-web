@@ -1,64 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Framework Setup</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>UI Framework - jQuery + DoT</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    <link rel="icon" type="image/x-icon" href="images/favicon-new.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/app-styles.css">
+    
+    <script src="scripts/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
-
 <body>
-    <header id="header"></header>
-    <div id="container"></div>
-
-    <!-- Using i18n on static page content -->
-    <p data-i18n="global-ajax-error-401.title.text">401 message</p>
-    <input data-i18n="label-1.placeholder" />
-
-    <!-- Registering Partial -->
-    <script name="nav" type="text/x-handlebars-partial">
-        <ul>
-            <!-- Using i18n within template -->
-            <li><a href="/">{{i18n "global-menu-home"}}</a></li>
-            <li><a href="/contact.html">{{i18n "global-menu-contact"}}</a></li>
-        </ul>
-        <p>Some partial content here</p>
-    </script>
-    <script name="test" type="text/x-handlebars-template">
-        <!-- Using registered partial with template -->
-        {{> nav}}
-        <div class="entry">
-            <h1>{{title}}</h1>
-            <div class="body">
-                {{body}}
-                <p><b>Using Localization with handlebar template:</b> {{i18n "global-menu-home"}}</p>
+    <header>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid" data-module="header">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">UI Framework</a>
             </div>
-        </div>
-    </script>
-    <script name="programList" type="text/x-handlebars-template">
-        <table border="1" cellpadding="4">
-            <thead>
-                <tr>
-                    <th>SN.</th>
-                    <th>Program Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each this}}
-                <tr>
-                    <td>{{@index}}</td>
-                    <td data-program-id="{{id}}">{{name}}</td>
-                </tr>
-                {{else}}
-                <tr>
-                    <td colspan="2">No program found!</td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </script>
 
-    <script src="js/vendors/require.js" data-main="js/app"></script>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Page 1</a></li>
+                <li><a href="#">Page 2</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ashish Kumar <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Profile Settings</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Activity Log</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Log out</a></li>
+                    </ul>
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+    
+    <div id="dialog-loading" class="hide">
+        <img src="images/ajax-loader.gif" alt="" />
+        <p data-l10n="global-loading">Loading Content</p>
+    </div>
+    <div id="dialog-confirm" class="hide">
+        <p>Are you sure you want to delete this item?</p>
+    </div>
+    <div id="dialog-alert" class="hide">
+        <p>Are you sure you want to delete this item?</p>
+    </div>
+
+
+    
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="bower_components/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+    <script src="bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/doT/doT.min.js"></script>
+    <script src="bower_components/crypto-js/build/rollups/aes.js"></script>
+    
+    <script src="scripts/plugins/plugins.js"></script>
+    <script src="scripts/plugins/EventHelpers.js"></script>
+    
+    <script src="scripts/global/config.js"></script>
+    <script src="scripts/global/service-config.js"></script>
+    <script src="scripts/global/utils.js"></script>
+    <script src="scripts/global/template-manager.js"></script>
+    <script src="scripts/global/service.js"></script>
+    <script src="scripts/global/app.js"></script>
+    <script src="scripts/global/translation-manager.js"></script>
 </body>
-
 </html>

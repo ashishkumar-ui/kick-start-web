@@ -1,15 +1,13 @@
-# {{ Kick Start Web }}
-A starter pack with a full fledged UI framework.
+# jQuery UI Framework
 
-## Features
-* Modular code
-* Uses requireJS
-* Ajax service wrapper
-* Templating Manager
-* REST API standalone configuration
-* Application level standalone configuration
-* Internationlizaton (i18n) integrated for base HTML and templating
-* Shared Scope cross modules for sharing data, functions etc.
-* Common utility available
+### Technologies used:
+- jQuery
+- jQuery UI
+- Modernizr
+- Boostrap
+- doT JS
+- Underscore
+- CryptoJS - AES
 
-Read out the complete documentation: https://github.com/ashishanexpert/kick-start-web/wiki
+### How to start
+To start with, please install bower packages first.
