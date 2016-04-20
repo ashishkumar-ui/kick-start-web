@@ -1,4 +1,0 @@
-$ cat .gitignore
-# Ignore node module and typing folders
-_archives/jquery/node_modules
-_archives/jquery/bower_components
