@@ -1,0 +1,4 @@
+$ cat .gitignore
+# Ignore node module and typing folders
+node_modules
+bower_components

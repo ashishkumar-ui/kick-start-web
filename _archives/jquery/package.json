@@ -1,0 +1,22 @@
+{
+  "name": "jquery-framework",
+  "version": "1.0.0",
+  "description": "a UI framework for multi page application. Usages jQuery, modernizr, dot.js to make it happen.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashishanexpert/kick-start-web/tree/master/_archives/jquery"
+  },
+  "keywords": [
+    "UI",
+    "Framework",
+    "jquery",
+    "dot.js",
+    "dot"
+  ],
+  "author": "Ashish Kumar (@https://github.com/ashishanexpert)",
+  "license": "MIT"
+}
