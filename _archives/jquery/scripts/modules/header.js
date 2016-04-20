@@ -3,11 +3,11 @@
  * @author Ashish Kumar
  */
 
-(function (window, BCG, $, undefined) {
+(function (window, APP, $, undefined) {
 	"use strict";
 
     /** @class */
-	BCG.header = (function () {
+	APP.header = (function () {
 		function Header(){
 		   
 		    //===== Private Vars
@@ -33,7 +33,7 @@
 			this.init = function (container){
 				$container = container;
 				bindUIActions();
-                BCG.utils.closeLoading();
+                APP.utils.closeLoading();
                 
                 //
                 console.log("Header Initiated");
@@ -43,4 +43,4 @@
 		return Header;
 	}());
 
-}(window, BCG, $));
+}(window, APP, $));

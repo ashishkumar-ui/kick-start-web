@@ -2,14 +2,14 @@
  * @file Manages the global configuration settings for the application.
  * @author Ashish Kumar
  */
-(function (window, BCG, $, undefined) {
+(function (window, APP, $, undefined) {
     "use strict";
 
     var rootPath = "/",
         encrytionKey = $("#encryptionKey").val() || "KjU87G@905K#jhKH",
         encryptionIV = $("#encryptionIV").val() || "HKhj#K509@G78UjK";
 
-    window.BCG.config = {
+    window.APP.config = {
 
         // App URL configurations
         urls: {
@@ -46,4 +46,4 @@
     };
 
 
-}(window, window.BCG = window.BCG || {}, $));
+}(window, window.APP = window.APP || {}, $));

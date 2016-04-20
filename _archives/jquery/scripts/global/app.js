@@ -3,16 +3,16 @@
  * @author Ashish Kumar
  */
 
-(function (window, BCG, $, Modernizr, undefined) {
+(function (window, APP, $, Modernizr, undefined) {
     "use strict";
 
     $(function () {
         
         // Init Loading
-        BCG.utils.initLoading();
+        APP.utils.initLoading();
         
         // Init Global Confirmation Dialog
-        BCG.utils.initConfirmDialog();
+        APP.utils.initConfirmDialog();
         
         //load functional modules on demand	
         loadModulesOnDemand();
@@ -26,13 +26,13 @@
     function loadModulesOnDemand() {
         // SET: Dev/Prod path url here for scripts
         // NOTE: No need to change anywhere else
-        var rootPath = BCG.config.urls.scriptRoot;
+        var rootPath = APP.config.urls.scriptRoot;
         
         // Start: Loading content using Modernizr
         $('[data-module]').each(function (index, elem) {
             var module = $(this).attr('data-module'),
-                cdnUrl = BCG.config.urls.cdn || "",
-                coreModule = cdnUrl + rootPath + "modules" + (BCG.config.isJsMinified ? "-min" : "") + "/" + module + '.js',
+                cdnUrl = APP.config.urls.cdn || "",
+                coreModule = cdnUrl + rootPath + "modules" + (APP.config.isJsMinified ? "-min" : "") + "/" + module + '.js',
 				dependencies = [],
 				scriptArray = [coreModule],
 				$container = $(this);
@@ -50,12 +50,12 @@
                     if (val.lastIndexOf(".css") === (val.length - 4)) {
 
                         // CSS Path
-                        path += BCG.config.urls.cssRoot;
+                        path += APP.config.urls.cssRoot;
 
                     } else {
 
                         // Pick Modules from Minified path
-                        if (BCG.config.isJsMinified) {
+                        if (APP.config.isJsMinified) {
                             val = val.replace("modules/", "modules-min/");
                         }
 
@@ -76,8 +76,8 @@
             Modernizr.load({
                 load: scriptArray,
                 complete: function () {
-                    if (BCG[module]) {
-                        var moduleObj = new BCG[module]();
+                    if (APP[module]) {
+                        var moduleObj = new APP[module]();
                         moduleObj.init($container);
                         return moduleObj;
                     }
@@ -86,4 +86,4 @@
         });
     }
 
-}(window, BCG, $, Modernizr));
+}(window, APP, $, Modernizr));

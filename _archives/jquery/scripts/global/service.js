@@ -3,9 +3,9 @@
  * @author Ashish Kumar
  */
 
-(function (window, BCG, $, undefined) {
+(function (window, APP, $, undefined) {
     "use strict";
-    BCG.service = (function () {
+    APP.service = (function () {
         function Service() {
 
             //
@@ -14,13 +14,14 @@
                 async: false,
                 beforeSend: function (request) { },
                 error: function (xhr, status, err) {
+                    var message = l10n("global-error-data-not-loaded");
                     
                     // Handling Basic Errors
                     switch (xhr.status) {
                         
                         //UnAthorized
                         case 401:
-                            //BCG.utils.signOut();
+                            //APP.utils.signOut();
                             break;
                             
                         // Global 500
@@ -35,16 +36,12 @@
                     }
 
                     // Close Loading
-                    BCG.utils.closeLoading();
-
-                    //Close PM Tree Loading
-                    $("#tree-loader").hide();
-                  
+                    APP.utils.closeLoading();
 
                     // Open Alert if already not opened for any specific Error
                     if (xhr.status !== 0) {
                         if (!$("#dialogAlert").is(":visible")) {
-                            BCG.utils.openAlert(message, { dialogClass: "alert" });
+                            APP.utils.openAlert(message, { dialogClass: "alert" });
                         }
                     }
 
@@ -54,7 +51,7 @@
                     }
 
                     // Console
-                    //console.error("ERROR - BCG.SERVICE --> request: ", xhr.status, this.url);
+                    //console.error("ERROR - APP.SERVICE --> request: ", xhr.status, this.url);
                 }
             };
 
@@ -69,40 +66,19 @@
              * @return {object} jQuery promise object
             */
             function doAjaxSettings(params, type, headerObj) {
-                var settings = $.extend(true, {}, serviceSettings),
-                    programDropDown = $("#allPrograms,#programDD,.tree-dropdown-container>.select"),
-                    defaultProgramValue = programDropDown.data("value");
+                var settings = $.extend(true, {}, serviceSettings);
 
                 if ($.isFunction(params.successCallback)) {
                     settings.success = function (data) {
                         if (data.ResultPayload === null) {
                             data.ResultPayload = [];
                         }
-                        if (typeof data.ResultMessage !== "undefined" && data.ResultMessage === BCG.config.unAuthKey) {
-                            BCG.utils.showMessages({
-                                message: l10n("rm-global-msg-unAuthAttempt"),
-                                isVisible: true,
-                                className: "msg-error"
-                            });
-                            BCG.utils.closeLoading();
-                            BCG.utils.noPermission();
-                            return;
-                        }
 
                         params.successCallback(data);
                     };
                 }
 
-                if (type === "POST" && $("#antiForgeryToken").length) {
-                    settings.headers = {};
-                    settings.headers['__RequestVerificationToken'] = $("#antiForgeryToken").data("ngInit");
-                }
-                if (programDropDown && programDropDown.length && defaultProgramValue && defaultProgramValue + "" !== $.cookie("PROG_CURRENT") && params.url.indexOf(BCG.serviceConfig.userManagement.getPrograms) === -1) {
-                    BCG.utils.openAlert(l10n("rm-global-msg-defaultprogramchanged"), { dialogClass: "alert" });
-                    BCG.config.loaderOpenedByProgramDifference = true;
-                    return;
-                }
-
+                
                 // Inject Header data passed
                 if (headerObj) {
                     settings.headers = $.extend({}, settings.headers, headerObj);
@@ -111,28 +87,12 @@
                 $.extend(settings, {
                     type: type
                 }, params);
-                $.support.cors = true; // Cross-Origin Resource Sharing
+                
+                // Cross-Origin Resource Sharing
+                $.support.cors = true; 
 
                 return $.ajax(settings);
             }
-
-            // On Complete of Ajax Request
-            $(document).ajaxComplete(function (event, xhr, settings) {
-                //console.log(settings.type + ": " + settings.url);
-                if (settings.url.indexOf(BCG.serviceConfig.userManagement.getPrograms) > -1 || settings.url.indexOf(BCG.serviceConfig.reports.getPrograms) > -1) {
-                    $("#allPrograms,#programDD").attr("data-value", $("#allPrograms,#programDD").val());
-                }
-                // Reset Session
-                if ($.isFunction(BCG.utils.resetSession)) {
-                    //session increase
-                    var newDate = (new Date().getTime()); // currentTime in second
-                    if ((typeof (Storage) !== "undefined")) {
-                        localStorage.timeout = newDate + ($("#sessionExpireTime").val() * 60 * 1000);
-                    }
-
-                    BCG.utils.resetSession();
-                }
-            });
 
             // Appending context token to all ajax calls for rest methods
             $.ajaxPrefilter(function (settings, OriginalOptions, jqxhr) { });
@@ -157,15 +117,7 @@
              * @return {object} jQuery promise object
             */
             this.getData = function (params, headerObj) {
-                return doAjaxSettings(params, "GET", headerObj).always(function (data) {
-                    if (data.ResultMessage && data.ResultMessage === BCG.config.unAuthKey) {
-                        BCG.utils.showMessages({
-                            message: l10n("rm-global-msg-unAuthAttempt"),
-                            isVisible: true,
-                            className: "msg-error"
-                        });
-                    }
-                });
+                return doAjaxSettings(params, "GET", headerObj);
             };
 
             /**
@@ -182,4 +134,4 @@
 
         return new Service();
     }());
-}(window, BCG, $));
+}(window, APP, $));

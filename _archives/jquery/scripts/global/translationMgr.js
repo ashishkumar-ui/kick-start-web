@@ -3,14 +3,14 @@
  * @author Ashish Kumar
  */
 
-(function (window, BCG, $, undefined) {
+(function (window, APP, $, undefined) {
     "use strict";
 
     window.localizedStrings = {};
  
-    BCG.translationConfig = window.localizedStrings;
+    APP.translationConfig = window.localizedStrings;
 
-    BCG.translationMgr = {
+    APP.translationMgr = {
         init: function (context) {
             $("[data-l10n]", (context || "body")).each(function () {
                 var $this = $(this),
@@ -37,24 +37,24 @@
             });
         },
         translate: function (key) {
-            if (BCG.translationConfig[key] === "&") {
+            if (APP.translationConfig[key] === "&") {
                 return "&";
             } else {
-                return $("<div></div>").html(BCG.translationConfig[key]).text() || key;
+                return $("<div></div>").html(APP.translationConfig[key]).text() || key;
             }
             
         }
     };
 
     /** @global */
-    window.l10n = BCG.translationMgr.translate;
+    window.l10n = APP.translationMgr.translate;
 
     //trigger translation on dom ready
     $(function () {
-        if (!BCG.config.skipStaticTranslation) {
-            BCG.translationMgr.init();
+        if (!APP.config.skipStaticTranslation) {
+            APP.translationMgr.init();
         }
     });
 
 
-}(window, BCG, $));
+}(window, APP, $));

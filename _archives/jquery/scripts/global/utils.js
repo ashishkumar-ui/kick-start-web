@@ -3,7 +3,7 @@
  * @author Ashish Kumar
  */
 
-(function (window, BCG, $) {
+(function (window, APP, $) {
     "use strict";
     
     /**
@@ -113,7 +113,7 @@
         return dateObj;
     }
 
-    BCG.utils = {
+    APP.utils = {
         toDate: toDate,
         
         /**
@@ -177,14 +177,14 @@
                 width: 400,
 
                 close: function () {
-                    BCG.utils.dialogConfirm = false;
+                    APP.utils.dialogConfirm = false;
                 },
                 buttons: [
                     {
                         text: l10n("global-dialog-btn-yes"),
                         addClass: "btn-ok",
                         click: function () {
-                            BCG.utils.dialogConfirm = true;
+                            APP.utils.dialogConfirm = true;
                             $(this).dialog("close");
                             $('select:active').blur();
                         }
@@ -313,7 +313,7 @@
          * @param  {object} value
          */
         isNumber: function (value) {
-            if (BCG.utils.isSafe(value)) {
+            if (APP.utils.isSafe(value)) {
                 return (/^\d+$/.test(value));
             }
             return false;
@@ -356,7 +356,7 @@
             floatValue = numberPartials.length > 1 ? '.' + numberPartials[1] : "";
 
             // Comma placement if any, Default value is: 3
-            iCommaAfterDigits = BCG.utils.isNumber(iCommaAfterDigits) ? iCommaAfterDigits : 3;
+            iCommaAfterDigits = APP.utils.isNumber(iCommaAfterDigits) ? iCommaAfterDigits : 3;
             rgx = new RegExp("(\\d+)(\\d{" + iCommaAfterDigits + "})");
 
             while (rgx.test(mainValue)) {
@@ -475,7 +475,7 @@
          * @param  {object} inputString
          */
         encrypt: function (inputString) {
-            var encrypted = CryptoJS.AES.encrypt(inputString, BCG.config.encryption.key, BCG.config.encryption.settings).toString(),
+            var encrypted = CryptoJS.AES.encrypt(inputString, APP.config.encryption.key, APP.config.encryption.settings).toString(),
                 encoded = encodeURIComponent(encrypted);
 
             return encoded;
@@ -488,9 +488,9 @@
          */
         decrypt: function (encryptedString) {
             var decodedString = decodeURIComponent(encryptedString),
-                decripted = CryptoJS.AES.decrypt(decodedString, BCG.config.encryption.key, BCG.config.encryption.settings);
+                decripted = CryptoJS.AES.decrypt(decodedString, APP.config.encryption.key, APP.config.encryption.settings);
 
-            return $.isNumeric(encryptedString) ? parseInt(encryptedString) : BCG.utils.decryptedToString(decripted);
+            return $.isNumeric(encryptedString) ? parseInt(encryptedString) : APP.utils.decryptedToString(decripted);
         },
 
         /**
@@ -502,7 +502,7 @@
             var nodeIds;
             // Encrypt ID with removing the curly braces
             function encryptNodeID(nodeIDString) {
-                return BCG.utils.encrypt(nodeIDString.replace(/{|}/g, ""));
+                return APP.utils.encrypt(nodeIDString.replace(/{|}/g, ""));
             }            
             if (urlString) {
                 nodeIds = urlString.match(/\{\{[$0-9\}\}\.]+/g); // find out the IDs
@@ -520,4 +520,4 @@
         }
 
     };
-}(window, BCG, $));
+}(window, APP, $));

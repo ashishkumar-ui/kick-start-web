@@ -4,9 +4,9 @@
  */
 
 /* Rest Service config  */
-(function (window, BCG, $, undefined) {
+(function (window, APP, $, undefined) {
     "use strict";
-    BCG.serviceConfig = {
+    APP.serviceConfig = {
         global:{
             localization: "data/getLocalization"
         },
@@ -21,4 +21,4 @@
             
         }
     };
-}(window, BCG, $));
+}(window, APP, $));

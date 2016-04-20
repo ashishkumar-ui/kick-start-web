@@ -3,9 +3,9 @@
  * @author Ashish Kumar
  */
 
-(function (window, BCG, $, undefined) {
+(function (window, APP, $, undefined) {
 	"use strict";
-	BCG.templateMgr = (function () {
+	APP.templateMgr = (function () {
 		function TemplateMgr() {
 
 		    var _self = this;
@@ -87,6 +87,6 @@
 	}());
 	
 	//Invoke
-	BCG.templateMgr.init();
+	APP.templateMgr.init();
 	
-}(window, BCG, $));
+}(window, APP, $));
