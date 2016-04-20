@@ -13,7 +13,7 @@
     "dot.js",
     "dot"
   ],
-  "homepage": "https://github.com/ashishanexpert/kick-start-web/tree/master/_archives/jquery",
+  "homepage": "https://github.com/ashishanexpert/kick-start-web/blob/jquery-version",
   "ignore": [
     "**/.*",
     "node_modules",
