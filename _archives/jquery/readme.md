@@ -8,3 +8,6 @@
 - doT JS
 - Underscore
 - CryptoJS - AES
+
+### How to start
+To start with, please install bower packages first.
