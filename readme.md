@@ -12,4 +12,4 @@ A starter pack with a full fledged UI framework.
 * Shared Scope cross modules for sharing data, functions etc.
 * Common utility available
 
-Read out the complete documentation: https://github.com/ashishanexpert/kick-start-web/wiki
+Read out the complete documentation: https://github.com/ashishkumar-ui/kick-start-web/wiki
