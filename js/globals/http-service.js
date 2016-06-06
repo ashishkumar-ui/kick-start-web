@@ -8,7 +8,7 @@ define(function (require) {
         appConfig = require("appConfig"),
         defaultSettings = {
             dataType: "json",
-            async: false
+            async: true
         };
 
     //
