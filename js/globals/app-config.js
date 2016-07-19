@@ -8,7 +8,8 @@ define(function (require) {
         },
         urls: {
             restRoot: {
-                api: "/data/"
+                api: "/data/",
+                server: "https://api.example.com/connects/"
             }
         }
     };
