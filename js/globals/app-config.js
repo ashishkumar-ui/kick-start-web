@@ -7,7 +7,9 @@ define(function (require) {
             version: "1.0.0"
         },
         urls: {
-            restRoot: "/data/"
+            restRoot: {
+                api: "/data/"
+            }
         }
     };
 });

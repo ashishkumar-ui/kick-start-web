@@ -33,6 +33,11 @@ define(function (require) {
     function doAjax(ajaxParam, type) {
         // set defaults
         var settings = $.extend(true, {}, defaultSettings);
+        
+        // Correct URLs
+        if(!ajaxParam.url.match(/^((http|https):)?\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/)){
+            ajaxParam.url = appConfig.urls.restRoot[ajaxParam.source || 'api'] + ajaxParam.url;
+        }
 
         // If user defined success callback
         if ($.isFunction(ajaxParam.successCallback)) {
