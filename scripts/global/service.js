@@ -67,6 +67,11 @@
             */
             function doAjaxSettings(params, type, headerObj) {
                 var settings = $.extend(true, {}, serviceSettings);
+                
+                // Correct URLs
+                if(!params.url.match(/^((http|https):)?\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/)){
+                    params.url = APP.config.urls.restRoot[params.source || 'api'] + params.url;
+                }
 
                 if ($.isFunction(params.successCallback)) {
                     settings.success = function (data) {

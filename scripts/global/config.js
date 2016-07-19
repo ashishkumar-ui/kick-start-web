@@ -14,7 +14,10 @@
         // App URL configurations
         urls: {
             appRoot: rootPath,
-            restRoot: rootPath,
+            restRoot: {
+                api: rootPath,
+                server: "https://api.example.com/connect/"
+            },
             scriptRoot: rootPath + "scripts/",
             cssRoot: rootPath + "css/",
             logoutScreen: rootPath + "Home/SignOut",
